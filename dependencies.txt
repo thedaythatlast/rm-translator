@@ -1,0 +1,6 @@
+Django==6.0.3
+argostranslate==1.11.0
+python-dotenv==1.2.1
+djangorestframework==3.16.1
+django-redis==6.0.0
+redis==7.3.0
