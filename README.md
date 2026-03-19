@@ -70,7 +70,7 @@ Response:
 
 Requests 1–3 return translations. Requests 4–5 return `429 Too Many Requests`.
 
-### K6 Load testing
+## K6 Load testing
 
 This project includes k6 load tests in the `/k6` directory. Make sure to install [k6](https://grafana.com/docs/k6/latest/set-up/install-k6/) if you want to run the test scripts
 
@@ -84,7 +84,7 @@ k6 run k6/baseline.js
 k6 run k6/concurrent.js
 ```
 
-## Results
+### Results
 
 | Test | VUs | Success Rate | p95 Latency | Result |
 |---|---|---|---|---|
