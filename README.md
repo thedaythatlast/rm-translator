@@ -52,14 +52,12 @@ User sends the English that needs to be translated to the backend and receive th
 ### Translate text
 
 ```bash
-curl -X POST http://127.0.0.1:8000/api/translate/ \
-  -H "Content-Type: application/json" \
-  -d '{"text": "Hello, how are you?"}'
+curl -X POST http://127.0.0.1:8000/api/translate/ -H "Content-Type: application/json" -d "{\"text\": \"Hello, how are you?\"}"
 ```
 
 Response:
 ```json
-{"translation": "Xin chào, bạn có khỏe không?"}
+{"translation":"Xin chào, anh khỏe không?"}
 ```
 
 ### Test rate limiting (PowerShell)
