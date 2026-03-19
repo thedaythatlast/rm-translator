@@ -6,7 +6,7 @@ Rate limiting uses an algorithm implemented in Redis via Lua scripting.
 
 ## How it works
 
-User sends the English that needs to be translated to the backend and receive the translation in Vietnamese. If the number of requests exceeds the allowed capacity, the request will be denied.
+User sends the English that needs to be translated to the backend and receive the translation in Vietnamese. If the number of requests exceeds the allowed capacity (3 users), the request will be denied.
 
 ## Setup
 
@@ -69,6 +69,27 @@ Response:
 ```
 
 Requests 1–3 return translations. Requests 4–5 return `429 Too Many Requests`.
+
+### K6 Load testing
+
+This project includes k6 load tests in the `/k6` directory. Make sure to install [k6](https://grafana.com/docs/k6/latest/set-up/install-k6/) if you want to run the test scripts
+
+**Baseline** — tests single-user load:
+```bash
+k6 run k6/baseline.js
+```
+
+**Concurrent** — tests with 3 simultaneous users:
+```bash
+k6 run k6/concurrent.js
+```
+
+## Results
+
+| Test | VUs | Success Rate | p95 Latency | Result |
+|---|---|---|---|---|
+| Baseline | 1 | 100% | 97ms | ✅ Pass |
+| Concurrent | 3 | ~14% | 91ms | ❌ Fail |
 
 ## Credits
 
